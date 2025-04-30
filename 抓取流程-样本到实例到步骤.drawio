@@ -1,0 +1,155 @@
+<mxfile host="Electron" modified="2025-04-29T15:15:19.840Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.8 Chrome/112.0.5615.165 Electron/24.2.0 Safari/537.36" etag="i_y4Hn5S954BUQMUgNjV" version="21.2.8" type="device">
+  <diagram name="第 1 页" id="ofU7p6vnMykX8HbHNVkN">
+    <mxGraphModel dx="1050" dy="717" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-11" target="fZPasMDdNVlAiNEVsiWp-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-11" value="开始" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="90" y="20" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-14" value="获取爬虫包中各个样本&lt;br&gt;如：&lt;br&gt;样本名称、&lt;br&gt;样本描述、&lt;br&gt;实例数量、&lt;br&gt;初始化实例数量、&lt;br&gt;运行实例数量、&lt;br&gt;销毁实例数量、&lt;br&gt;是否生效、&lt;br&gt;样本文件md5、&lt;br&gt;类名、&lt;br&gt;样本初始化逻辑、&lt;br&gt;运行逻辑、&lt;br&gt;销毁逻辑、" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="120" y="150" width="140" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-15" target="fZPasMDdNVlAiNEVsiWp-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-15" target="fZPasMDdNVlAiNEVsiWp-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-15" value="是否存在md5一致的样本" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="30" y="350" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="510" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="210" y="510" />
+              <mxPoint x="210" y="480" />
+              <mxPoint x="230" y="480" />
+              <mxPoint x="230" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-17" value="保持不变" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="55" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-19" value="是" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="110" y="440" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-20" target="fZPasMDdNVlAiNEVsiWp-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-20" target="fZPasMDdNVlAiNEVsiWp-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-20" value="是否存在类名与版本号一致的样本" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="30" y="585" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-22" value="否" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="210" y="530" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-23">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-23" value="更新样本" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="55" y="710" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-25" value="是" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="120" y="675" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-29" target="fZPasMDdNVlAiNEVsiWp-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-29" value="新增样本并激活" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="55" y="800" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-31" value="否" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry y="760" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-32" target="fZPasMDdNVlAiNEVsiWp-54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-32" value="开始" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="389" y="20" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-34" value="实例启动" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="300" y="10" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-51" target="fZPasMDdNVlAiNEVsiWp-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-51" value="扫描爬虫包" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-54" target="fZPasMDdNVlAiNEVsiWp-56">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-54" value="初始化" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="359" y="130" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-56" target="fZPasMDdNVlAiNEVsiWp-57">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-56" value="运行" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="359" y="300" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-57" target="fZPasMDdNVlAiNEVsiWp-62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-57" target="fZPasMDdNVlAiNEVsiWp-64">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-57" value="产生步骤" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="359" y="490" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-60" value="1.更新实例状态为销毁&lt;br&gt;2.记录销毁的开始与结束时间" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="324" y="790" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-62" value="销毁" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="359" y="730" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-64" target="fZPasMDdNVlAiNEVsiWp-67">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-64" value="开始" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="670" y="20" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-66" value="步骤启动" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="590" y="10" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-67" target="fZPasMDdNVlAiNEVsiWp-72">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-67" value="构建步骤的请求部分" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="640" y="180" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-69" value="1.分配步骤id&lt;br&gt;2.新增步骤记录&lt;br&gt;3.记录步骤请求的请求方式，请求头，请求体&lt;br&gt;4.记录步骤请求的开始时间" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="560" y="270" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-70" value="1.分配实例id&lt;br&gt;2.新增实例记录&lt;br&gt;3.设置实例记录状态为初始化&lt;br&gt;4.记录初始化的开始与结束时间" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="319" y="205" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-71" value="1.设置实例记录状态为运行&lt;br&gt;2.记录运行的开始与结束时间&lt;br&gt;3.执行程序自定义的实例逻辑" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="324" y="380" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="fZPasMDdNVlAiNEVsiWp-72" target="fZPasMDdNVlAiNEVsiWp-74">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-72" value="发出该步骤的请求" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="640" y="380" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-74" value="接收该步骤的响应" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="640" y="560" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fZPasMDdNVlAiNEVsiWp-76" value="1.记录步骤请求的响应头，响应体&lt;br&gt;2.记录步骤请求的结束时间" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="595" y="620" width="200" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
