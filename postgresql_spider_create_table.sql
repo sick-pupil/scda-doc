@@ -1,0 +1,454 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : postgresql_localhost
+ Source Server Type    : PostgreSQL
+ Source Server Version : 110021
+ Source Host           : localhost:5432
+ Source Catalog        : scda-spider
+ Source Schema         : public
+
+ Target Server Type    : PostgreSQL
+ Target Server Version : 110021
+ File Encoding         : 65001
+
+ Date: 24/05/2025 19:28:37
+*/
+
+
+-- ----------------------------
+-- Sequence structure for spider_instance_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."spider_instance_id_seq";
+CREATE SEQUENCE "public"."spider_instance_id_seq" 
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 9223372036854775807
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for spider_ip_agent_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."spider_ip_agent_id_seq";
+CREATE SEQUENCE "public"."spider_ip_agent_id_seq" 
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 9223372036854775807
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for spider_ip_agent_log_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."spider_ip_agent_log_id_seq";
+CREATE SEQUENCE "public"."spider_ip_agent_log_id_seq" 
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 9223372036854775807
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for spider_sample_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."spider_sample_id_seq";
+CREATE SEQUENCE "public"."spider_sample_id_seq" 
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 9223372036854775807
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for spider_step_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."spider_step_id_seq";
+CREATE SEQUENCE "public"."spider_step_id_seq" 
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 9223372036854775807
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for spider_user_agent_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."spider_user_agent_id_seq";
+CREATE SEQUENCE "public"."spider_user_agent_id_seq" 
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 9223372036854775807
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for spider_user_agent_log_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."spider_user_agent_log_id_seq";
+CREATE SEQUENCE "public"."spider_user_agent_log_id_seq" 
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 9223372036854775807
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Table structure for spider_instance
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."spider_instance";
+CREATE TABLE "public"."spider_instance" (
+  "id" int8 NOT NULL DEFAULT nextval('spider_instance_id_seq'::regclass),
+  "sample_id" int8 NOT NULL,
+  "run_status" int2 NOT NULL,
+  "init_start_time" timestamp(6),
+  "init_end_time" timestamp(6),
+  "run_start_time" timestamp(6),
+  "run_end_time" timestamp(6),
+  "destroy_start_time" timestamp(6),
+  "destroy_end_time" timestamp(6),
+  "init_cost_time" int8 NOT NULL DEFAULT 0,
+  "run_cost_time" int8 NOT NULL DEFAULT 0,
+  "destroy_cost_time" int8 NOT NULL DEFAULT 0,
+  "total_cost_time" int8 NOT NULL DEFAULT 0,
+  "retry_time" int4 NOT NULL DEFAULT 0,
+  "success_time" int4 NOT NULL DEFAULT 0,
+  "fail_time" int4 NOT NULL DEFAULT 0,
+  "success_percent" numeric(10,2) NOT NULL DEFAULT 0,
+  "fail_percent" numeric(10,2) NOT NULL DEFAULT 0,
+  "run_result" int2 NOT NULL DEFAULT 1,
+  "exception_msg" text COLLATE "pg_catalog"."default",
+  "deleted" int2 NOT NULL DEFAULT 0,
+  "creator_user_id" int8 NOT NULL,
+  "create_time" timestamp(6) NOT NULL,
+  "updator_user_id" int8 NOT NULL,
+  "update_time" timestamp(6) NOT NULL
+)
+;
+COMMENT ON COLUMN "public"."spider_instance"."id" IS '主键id';
+COMMENT ON COLUMN "public"."spider_instance"."sample_id" IS '样本id';
+COMMENT ON COLUMN "public"."spider_instance"."run_status" IS '运行状态';
+COMMENT ON COLUMN "public"."spider_instance"."init_start_time" IS '初始化开始时间';
+COMMENT ON COLUMN "public"."spider_instance"."init_end_time" IS '初始化结束时间';
+COMMENT ON COLUMN "public"."spider_instance"."run_start_time" IS '运行开始时间';
+COMMENT ON COLUMN "public"."spider_instance"."run_end_time" IS '运行结束时间';
+COMMENT ON COLUMN "public"."spider_instance"."destroy_start_time" IS '销毁开始时间';
+COMMENT ON COLUMN "public"."spider_instance"."destroy_end_time" IS '销毁结束时间';
+COMMENT ON COLUMN "public"."spider_instance"."init_cost_time" IS '初始化消耗时间，毫秒';
+COMMENT ON COLUMN "public"."spider_instance"."run_cost_time" IS '运行消耗时间，毫秒';
+COMMENT ON COLUMN "public"."spider_instance"."destroy_cost_time" IS '销毁消耗时间，毫秒';
+COMMENT ON COLUMN "public"."spider_instance"."total_cost_time" IS '总消耗时间，毫秒';
+COMMENT ON COLUMN "public"."spider_instance"."retry_time" IS '重试次数';
+COMMENT ON COLUMN "public"."spider_instance"."success_time" IS '成功次数';
+COMMENT ON COLUMN "public"."spider_instance"."fail_time" IS '失败次数';
+COMMENT ON COLUMN "public"."spider_instance"."success_percent" IS '成功率';
+COMMENT ON COLUMN "public"."spider_instance"."fail_percent" IS '失败率';
+COMMENT ON COLUMN "public"."spider_instance"."run_result" IS '运行结果';
+COMMENT ON COLUMN "public"."spider_instance"."exception_msg" IS '异常消息';
+COMMENT ON COLUMN "public"."spider_instance"."deleted" IS '是否被删除';
+COMMENT ON COLUMN "public"."spider_instance"."creator_user_id" IS '创建者';
+COMMENT ON COLUMN "public"."spider_instance"."create_time" IS '创建时间';
+COMMENT ON COLUMN "public"."spider_instance"."updator_user_id" IS '更新者';
+COMMENT ON COLUMN "public"."spider_instance"."update_time" IS '更新时间';
+COMMENT ON TABLE "public"."spider_instance" IS '抓取实例';
+
+-- ----------------------------
+-- Table structure for spider_ip_agent
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."spider_ip_agent";
+CREATE TABLE "public"."spider_ip_agent" (
+  "id" int8 NOT NULL DEFAULT nextval('spider_ip_agent_id_seq'::regclass),
+  "vendor" varchar(50) COLLATE "pg_catalog"."default" NOT NULL,
+  "access_ip_agent_url" varchar(200) COLLATE "pg_catalog"."default" NOT NULL,
+  "username" varchar(50) COLLATE "pg_catalog"."default" NOT NULL,
+  "password" varchar(50) COLLATE "pg_catalog"."default" NOT NULL,
+  "deleted" int2 NOT NULL DEFAULT 0,
+  "creator_user_id" int8 NOT NULL,
+  "create_time" timestamp(6) NOT NULL,
+  "updator_user_id" int8 NOT NULL,
+  "update_time" timestamp(6) NOT NULL
+)
+;
+COMMENT ON COLUMN "public"."spider_ip_agent"."id" IS '主键id';
+COMMENT ON COLUMN "public"."spider_ip_agent"."vendor" IS '服务商';
+COMMENT ON COLUMN "public"."spider_ip_agent"."access_ip_agent_url" IS '获取代理ip池的请求地址';
+COMMENT ON COLUMN "public"."spider_ip_agent"."username" IS '获取代理ip的用户名';
+COMMENT ON COLUMN "public"."spider_ip_agent"."password" IS '获取代理ip的密码';
+COMMENT ON COLUMN "public"."spider_ip_agent"."deleted" IS '是否被删除';
+COMMENT ON COLUMN "public"."spider_ip_agent"."creator_user_id" IS '创建者';
+COMMENT ON COLUMN "public"."spider_ip_agent"."create_time" IS '创建时间';
+COMMENT ON COLUMN "public"."spider_ip_agent"."updator_user_id" IS '更新者';
+COMMENT ON COLUMN "public"."spider_ip_agent"."update_time" IS '更新时间';
+COMMENT ON TABLE "public"."spider_ip_agent" IS 'ip代理池';
+
+-- ----------------------------
+-- Table structure for spider_ip_agent_log
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."spider_ip_agent_log";
+CREATE TABLE "public"."spider_ip_agent_log" (
+  "id" int8 NOT NULL DEFAULT nextval('spider_ip_agent_log_id_seq'::regclass),
+  "step_id" int8 NOT NULL,
+  "agent_ip_id" int8 NOT NULL,
+  "agent_ip" varchar(200) COLLATE "pg_catalog"."default" NOT NULL,
+  "access_result" int2 NOT NULL,
+  "deleted" int2 NOT NULL DEFAULT 0,
+  "creator_user_id" int8 NOT NULL,
+  "create_time" timestamp(6) NOT NULL,
+  "updator_user_id" int8 NOT NULL,
+  "update_time" timestamp(6) NOT NULL
+)
+;
+COMMENT ON COLUMN "public"."spider_ip_agent_log"."id" IS '主键id';
+COMMENT ON COLUMN "public"."spider_ip_agent_log"."step_id" IS '步骤id';
+COMMENT ON COLUMN "public"."spider_ip_agent_log"."agent_ip_id" IS 'ip代理池id';
+COMMENT ON COLUMN "public"."spider_ip_agent_log"."agent_ip" IS '代理ip';
+COMMENT ON COLUMN "public"."spider_ip_agent_log"."access_result" IS '获取代理结果';
+COMMENT ON COLUMN "public"."spider_ip_agent_log"."deleted" IS '是否被删除';
+COMMENT ON COLUMN "public"."spider_ip_agent_log"."creator_user_id" IS '创建者';
+COMMENT ON COLUMN "public"."spider_ip_agent_log"."create_time" IS '创建时间';
+COMMENT ON COLUMN "public"."spider_ip_agent_log"."updator_user_id" IS '更新者';
+COMMENT ON COLUMN "public"."spider_ip_agent_log"."update_time" IS '更新时间';
+COMMENT ON TABLE "public"."spider_ip_agent_log" IS '抓取使用代理池获取日志';
+
+-- ----------------------------
+-- Table structure for spider_sample
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."spider_sample";
+CREATE TABLE "public"."spider_sample" (
+  "id" int8 NOT NULL DEFAULT nextval('spider_sample_id_seq'::regclass),
+  "class_name" varchar(50) COLLATE "pg_catalog"."default" NOT NULL,
+  "name" varchar(30) COLLATE "pg_catalog"."default" NOT NULL,
+  "desc" varchar(100) COLLATE "pg_catalog"."default",
+  "md5" varchar(100) COLLATE "pg_catalog"."default" NOT NULL,
+  "init_logic" text COLLATE "pg_catalog"."default" NOT NULL,
+  "run_logic" text COLLATE "pg_catalog"."default" NOT NULL,
+  "destroy_logic" text COLLATE "pg_catalog"."default" NOT NULL,
+  "effect_status" int2 NOT NULL DEFAULT 1,
+  "deleted" int2 NOT NULL DEFAULT 0,
+  "creator_user_id" int8 NOT NULL,
+  "create_time" timestamp(6) NOT NULL,
+  "updator_user_id" int8 NOT NULL,
+  "update_time" timestamp(6) NOT NULL
+)
+;
+COMMENT ON COLUMN "public"."spider_sample"."id" IS '主键id';
+COMMENT ON COLUMN "public"."spider_sample"."class_name" IS '样本类名';
+COMMENT ON COLUMN "public"."spider_sample"."name" IS '样本名称';
+COMMENT ON COLUMN "public"."spider_sample"."desc" IS '描述';
+COMMENT ON COLUMN "public"."spider_sample"."md5" IS '样本文件md5';
+COMMENT ON COLUMN "public"."spider_sample"."init_logic" IS '初始化逻辑';
+COMMENT ON COLUMN "public"."spider_sample"."run_logic" IS '运行逻辑';
+COMMENT ON COLUMN "public"."spider_sample"."destroy_logic" IS '销毁逻辑';
+COMMENT ON COLUMN "public"."spider_sample"."effect_status" IS '是否生效';
+COMMENT ON COLUMN "public"."spider_sample"."deleted" IS '是否被删除';
+COMMENT ON COLUMN "public"."spider_sample"."creator_user_id" IS '创建者';
+COMMENT ON COLUMN "public"."spider_sample"."create_time" IS '创建时间';
+COMMENT ON COLUMN "public"."spider_sample"."updator_user_id" IS '更新者';
+COMMENT ON COLUMN "public"."spider_sample"."update_time" IS '更新时间';
+COMMENT ON TABLE "public"."spider_sample" IS '抓取样本';
+
+-- ----------------------------
+-- Table structure for spider_step
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."spider_step";
+CREATE TABLE "public"."spider_step" (
+  "id" int8 NOT NULL DEFAULT nextval('spider_step_id_seq'::regclass),
+  "instance_id" int8 NOT NULL,
+  "req_url" varchar(255) COLLATE "pg_catalog"."default",
+  "req_method" varchar(10) COLLATE "pg_catalog"."default",
+  "req_header" text COLLATE "pg_catalog"."default",
+  "req_body" text COLLATE "pg_catalog"."default",
+  "resp_header" text COLLATE "pg_catalog"."default",
+  "resp_body" text COLLATE "pg_catalog"."default",
+  "resp_status_code" int4,
+  "build_req_start_time" timestamp(6),
+  "build_req_end_time" timestamp(6),
+  "req_start_time" timestamp(6),
+  "req_end_time" timestamp(6),
+  "resp_process_start_time" timestamp(6),
+  "resp_process_end_time" timestamp(6),
+  "build_req_cost_time" int8 NOT NULL DEFAULT 0,
+  "req_cost_time" int8 NOT NULL DEFAULT 0,
+  "resp_process_cost_time" int8 NOT NULL DEFAULT 0,
+  "total_cost_time" int8 NOT NULL DEFAULT 0,
+  "retry_time" int4 NOT NULL DEFAULT 0,
+  "success_time" int4 NOT NULL DEFAULT 0,
+  "fail_time" int4 NOT NULL DEFAULT 0,
+  "success_percent" numeric(10,2) NOT NULL DEFAULT 0,
+  "fail_percent" numeric(10,2) NOT NULL DEFAULT 0,
+  "run_result" int2 NOT NULL DEFAULT 1,
+  "exception_msg" text COLLATE "pg_catalog"."default",
+  "deleted" int2 NOT NULL DEFAULT 0,
+  "creator_user_id" int8 NOT NULL,
+  "create_time" timestamp(6) NOT NULL,
+  "updator_user_id" int8 NOT NULL,
+  "update_time" timestamp(6) NOT NULL
+)
+;
+COMMENT ON COLUMN "public"."spider_step"."id" IS '主键id';
+COMMENT ON COLUMN "public"."spider_step"."instance_id" IS '实例id';
+COMMENT ON COLUMN "public"."spider_step"."req_url" IS '请求地址';
+COMMENT ON COLUMN "public"."spider_step"."req_method" IS '请求方式';
+COMMENT ON COLUMN "public"."spider_step"."req_header" IS '请求头';
+COMMENT ON COLUMN "public"."spider_step"."req_body" IS '请求体';
+COMMENT ON COLUMN "public"."spider_step"."resp_header" IS '响应头';
+COMMENT ON COLUMN "public"."spider_step"."resp_body" IS '响应体';
+COMMENT ON COLUMN "public"."spider_step"."resp_status_code" IS '响应码';
+COMMENT ON COLUMN "public"."spider_step"."build_req_start_time" IS '构建请求开始时间';
+COMMENT ON COLUMN "public"."spider_step"."build_req_end_time" IS '构建请求结束时间';
+COMMENT ON COLUMN "public"."spider_step"."req_start_time" IS '请求开始时间';
+COMMENT ON COLUMN "public"."spider_step"."req_end_time" IS '请求结束时间';
+COMMENT ON COLUMN "public"."spider_step"."resp_process_start_time" IS '处理响应开始时间';
+COMMENT ON COLUMN "public"."spider_step"."resp_process_end_time" IS '处理响应结束时间';
+COMMENT ON COLUMN "public"."spider_step"."build_req_cost_time" IS '构建请求花费时间，毫秒';
+COMMENT ON COLUMN "public"."spider_step"."req_cost_time" IS '请求花费时间，毫秒';
+COMMENT ON COLUMN "public"."spider_step"."resp_process_cost_time" IS '处理响应花费时间，毫秒';
+COMMENT ON COLUMN "public"."spider_step"."total_cost_time" IS '总花费时间，毫秒';
+COMMENT ON COLUMN "public"."spider_step"."retry_time" IS '重试次数';
+COMMENT ON COLUMN "public"."spider_step"."success_time" IS '成功次数';
+COMMENT ON COLUMN "public"."spider_step"."fail_time" IS '失败次数';
+COMMENT ON COLUMN "public"."spider_step"."success_percent" IS '成功率';
+COMMENT ON COLUMN "public"."spider_step"."fail_percent" IS '失败率';
+COMMENT ON COLUMN "public"."spider_step"."run_result" IS '运行结果';
+COMMENT ON COLUMN "public"."spider_step"."exception_msg" IS '异常消息';
+COMMENT ON COLUMN "public"."spider_step"."deleted" IS '是否被删除';
+COMMENT ON COLUMN "public"."spider_step"."creator_user_id" IS '创建者';
+COMMENT ON COLUMN "public"."spider_step"."create_time" IS '创建时间';
+COMMENT ON COLUMN "public"."spider_step"."updator_user_id" IS '更新者';
+COMMENT ON COLUMN "public"."spider_step"."update_time" IS '更新时间';
+COMMENT ON TABLE "public"."spider_step" IS '抓取步骤';
+
+-- ----------------------------
+-- Table structure for spider_user_agent
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."spider_user_agent";
+CREATE TABLE "public"."spider_user_agent" (
+  "id" int8 NOT NULL DEFAULT nextval('spider_user_agent_id_seq'::regclass),
+  "user_agent" varchar(500) COLLATE "pg_catalog"."default" NOT NULL,
+  "deleted" int2 NOT NULL DEFAULT 0,
+  "creator_user_id" int8 NOT NULL,
+  "create_time" timestamp(6) NOT NULL,
+  "updator_user_id" int8 NOT NULL,
+  "update_time" timestamp(6) NOT NULL
+)
+;
+COMMENT ON COLUMN "public"."spider_user_agent"."id" IS '主键id';
+COMMENT ON COLUMN "public"."spider_user_agent"."user_agent" IS 'user-agent';
+COMMENT ON COLUMN "public"."spider_user_agent"."deleted" IS '是否被删除';
+COMMENT ON COLUMN "public"."spider_user_agent"."creator_user_id" IS '创建者';
+COMMENT ON COLUMN "public"."spider_user_agent"."create_time" IS '创建时间';
+COMMENT ON COLUMN "public"."spider_user_agent"."updator_user_id" IS '更新者';
+COMMENT ON COLUMN "public"."spider_user_agent"."update_time" IS '更新时间';
+COMMENT ON TABLE "public"."spider_user_agent" IS 'user-agent代理池';
+
+-- ----------------------------
+-- Table structure for spider_user_agent_log
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."spider_user_agent_log";
+CREATE TABLE "public"."spider_user_agent_log" (
+  "id" int8 NOT NULL DEFAULT nextval('spider_user_agent_log_id_seq'::regclass),
+  "step_id" int8 NOT NULL,
+  "user_agent_id" int8 NOT NULL,
+  "deleted" int2 NOT NULL DEFAULT 0,
+  "creator_user_id" int8 NOT NULL,
+  "create_time" timestamp(6) NOT NULL,
+  "updator_user_id" int8 NOT NULL,
+  "update_time" timestamp(6) NOT NULL
+)
+;
+COMMENT ON COLUMN "public"."spider_user_agent_log"."id" IS '主键id';
+COMMENT ON COLUMN "public"."spider_user_agent_log"."step_id" IS '步骤id';
+COMMENT ON COLUMN "public"."spider_user_agent_log"."user_agent_id" IS 'user-agent-id';
+COMMENT ON COLUMN "public"."spider_user_agent_log"."deleted" IS '是否被删除';
+COMMENT ON COLUMN "public"."spider_user_agent_log"."creator_user_id" IS '创建者';
+COMMENT ON COLUMN "public"."spider_user_agent_log"."create_time" IS '创建时间';
+COMMENT ON COLUMN "public"."spider_user_agent_log"."updator_user_id" IS '更新者';
+COMMENT ON COLUMN "public"."spider_user_agent_log"."update_time" IS '更新时间';
+COMMENT ON TABLE "public"."spider_user_agent_log" IS '抓取使用user-agent代理池获取日志';
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+SELECT setval('"public"."spider_instance_id_seq"', 1, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."spider_ip_agent_id_seq"
+OWNED BY "public"."spider_ip_agent"."id";
+SELECT setval('"public"."spider_ip_agent_id_seq"', 1, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."spider_ip_agent_log_id_seq"
+OWNED BY "public"."spider_ip_agent_log"."id";
+SELECT setval('"public"."spider_ip_agent_log_id_seq"', 1, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."spider_sample_id_seq"
+OWNED BY "public"."spider_sample"."id";
+SELECT setval('"public"."spider_sample_id_seq"', 1, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."spider_step_id_seq"
+OWNED BY "public"."spider_step"."id";
+SELECT setval('"public"."spider_step_id_seq"', 1, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."spider_user_agent_id_seq"
+OWNED BY "public"."spider_user_agent"."id";
+SELECT setval('"public"."spider_user_agent_id_seq"', 1, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."spider_user_agent_log_id_seq"
+OWNED BY "public"."spider_user_agent_log"."id";
+SELECT setval('"public"."spider_user_agent_log_id_seq"', 1, false);
+
+-- ----------------------------
+-- Primary Key structure for table spider_instance
+-- ----------------------------
+ALTER TABLE "public"."spider_instance" ADD CONSTRAINT "spider_instance_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Uniques structure for table spider_ip_agent
+-- ----------------------------
+ALTER TABLE "public"."spider_ip_agent" ADD CONSTRAINT "unique_vendor" UNIQUE ("vendor");
+
+-- ----------------------------
+-- Primary Key structure for table spider_ip_agent
+-- ----------------------------
+ALTER TABLE "public"."spider_ip_agent" ADD CONSTRAINT "spider_ip_agent_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table spider_ip_agent_log
+-- ----------------------------
+ALTER TABLE "public"."spider_ip_agent_log" ADD CONSTRAINT "spider_ip_agent_log_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table spider_sample
+-- ----------------------------
+ALTER TABLE "public"."spider_sample" ADD CONSTRAINT "spider_sample_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table spider_step
+-- ----------------------------
+ALTER TABLE "public"."spider_step" ADD CONSTRAINT "spider_step_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table spider_user_agent
+-- ----------------------------
+ALTER TABLE "public"."spider_user_agent" ADD CONSTRAINT "spider_user_agent_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table spider_user_agent_log
+-- ----------------------------
+ALTER TABLE "public"."spider_user_agent_log" ADD CONSTRAINT "spider_user_agent_log_pkey" PRIMARY KEY ("id");
